@@ -129,7 +129,7 @@ function Settings() {
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <strong>Email:</strong>{" "}
-                            <span className="text-black">
+                            <span className="text-black" style={{ wordBreak: "break-all", maxWidth: "60%" }}>
                               {profileData.email}
                             </span>
                           </li>

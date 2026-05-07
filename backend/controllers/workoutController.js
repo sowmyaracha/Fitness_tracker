@@ -1,3 +1,4 @@
+import Groq from "groq-sdk";
 import prisma from "../db/prismaClient.js";
 import { z } from "zod";
 import OpenAI from "openai";
@@ -666,9 +667,7 @@ export const fetchSuggestedWorkoutPlan = async (req, res) => {
     console.log("📦 Formatted workout items:", formattedWorkoutItems);
 
     console.log("🤖 Setting up OpenAI client");
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    });
+    const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
     console.log("📤 Sending request to OpenAI");
     const instructions = `
@@ -722,14 +721,15 @@ Output Format:
 }
 `;
 
-const response = await client.responses.create({
-  model: "gpt-4o",
-  instructions,
-  input,
+const response = await client.chat.completions.create({
+  model: "llama-3.3-70b-versatile",
+  messages: [
+    { role: "system", content: instructions },
+    { role: "user", content: input }
+  ],
 });
+const outputText = response.choices[0].message.content;
 
-
-const outputText = response.output_text;
 console.log("🧠 OpenAI raw response:", outputText);
 
 // Match JSON array between curly braces

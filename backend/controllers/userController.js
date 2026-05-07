@@ -99,10 +99,9 @@ import { getOrCreateWorkoutPlan } from "./workoutController.js";
 export const getUserWorkoutPlanItems = async (req, res) => {
   const userId = req.userId; // Assume user ID is available from the authenticated request
   const { date } = req.query; // Get the date from the query params
-  const requestedDate = new Date(date);
-  const startOfDay = new Date(requestedDate.setHours(0, 0, 0, 0));
-  // Get the end of the day (23:59:59.999)
-  const endOfDay = new Date(requestedDate.setHours(23, 59, 59, 999));
+  const requestedDate = new Date(date + "T00:00:00.000Z");
+  const startOfDay = new Date(date + "T00:00:00.000Z");
+  const endOfDay = new Date(date + "T23:59:59.999Z");
 
   const workoutPlans = await prisma.workoutPlan.findMany({
     where: {

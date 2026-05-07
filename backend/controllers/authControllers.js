@@ -84,7 +84,7 @@ export const signup = async (req, res) => {
         gender,
         dob: new Date(dob),
         profilePic,
-        role_id: 3,
+        role_id: 1,
         verificationToken,
         status: "ACTIVE",
         created_at: new Date(),

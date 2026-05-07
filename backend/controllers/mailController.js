@@ -9,15 +9,15 @@ import {
 
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
-  host: "mail.akg7547.uta.cloud", // Use your SMTP host
-  port: 465, // Use the appropriate port
+  service: "gmail",
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
-const sender = "no-reply@akg7547.uta.cloud";
+const sender = process.env.EMAIL_USER;
+
 
 export const sendVerificationEmail = async (email, verificationToken) => {
   // const verificationUrl = `${process.env.CLIENT_URL}/auth/verify?token=${verificationToken}&email=${email}`;

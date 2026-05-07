@@ -1,6 +1,6 @@
 import prisma from "../db/prismaClient.js";
 import { z } from "zod";
-import OpenAI from "openai";
+import Groq from "groq-sdk";
 
 export const createFoodCatalogueSchema = z.object({
   name: z.string().min(1, "Food name is required"),
@@ -766,7 +766,7 @@ export const fetchSuggestedDietPlan = async (req, res) => {
     console.log("📋 Formatted Food Items:", formattedFoodItems);
 
     console.log("🤖 Creating OpenAI client");
-    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
     console.log("📝 Constructing prompt input");
     const instructions = `
@@ -811,13 +811,14 @@ Output Format:
 }`;
 
     console.log("📤 Sending request to OpenAI");
-    const response = await client.responses.create({
-      model: "gpt-4o",
-      instructions,
-      input,
-    });
-
-    const outputText = response.output_text;
+    const response = await client.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [
+    { role: "system", content: instructions },
+    { role: "user", content: input }
+  ],
+});
+    const outputText = response.choices[0].message.content;
     console.log("📄 Raw OpenAI response:", outputText);
 
     const jsonStart = outputText.indexOf("{");
