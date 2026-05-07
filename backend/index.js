@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 // app.use(
 //   cors({
-//     origin: "http://localhost:5173", // Allow only your frontend domain
+//     origin: ["http://localhost:5173", "https://fitness-tracker-frontent.onrender.com"], // Allow only your frontend domain
 //     methods: ["GET", "POST", "PUT", "DELETE"],
 //     allowedHeaders: ["Content-Type", "Authorization"],
 //   })
