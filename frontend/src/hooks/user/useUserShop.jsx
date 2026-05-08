@@ -38,7 +38,7 @@ const useUserShop = () => {
       await axios.post(
         `${apiUrl}/api/common/add-to-cart`,
         { productId, quantity },
-        { withCredentials: true,
+        { withCredentials: true }
       );
       toast.success("Item added to cart");
       fetchCart();
@@ -66,7 +66,7 @@ const useUserShop = () => {
       await axios.post(
         `${apiUrl}/api/common/add-to-wishlist`,
         { productId },
-        { withCredentials: true,
+        { withCredentials: true }
       );
       toast.success("Item added to wishlist");
       fetchWishlist();
@@ -113,7 +113,7 @@ const useUserShop = () => {
       const response = await axios.post(
         `${apiUrl}/api/user/create-order`,
         orderData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
 
       toast.success("Order placed successfully!");

@@ -25,7 +25,7 @@ const useUserOrders = () => {
     try {
       const response = await axios.get(
         `${apiUrl}/api/user/get-all-order-items/${orderId}`,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setOrderItems(response.data.orderItems);
     } catch (error) {

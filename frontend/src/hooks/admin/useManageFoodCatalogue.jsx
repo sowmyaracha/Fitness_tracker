@@ -59,7 +59,7 @@ const useManageFoodCatalogue = () => {
       const res = await axios.put(
         `${apiUrl}/api/admin/update-food-item/${id}`,
         data,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setFoodItems((prev) =>
         prev.map((item) => (item.id === id ? res.data.food : item))

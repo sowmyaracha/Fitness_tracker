@@ -137,7 +137,7 @@ const useManageDietPlanItem = () => {
       const response = await axios.post(
         `${apiUrl}/api/admin/create-diet-plan-item`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setDietPlans((prevDietPlans) => [
         ...prevDietPlans,
@@ -163,7 +163,7 @@ const useManageDietPlanItem = () => {
       const response = await axios.put(
         `${apiUrl}/api/admin/update-diet-plan-item/${id}`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setDietPlans((prevDietPlans) =>
         prevDietPlans.map((plan) =>

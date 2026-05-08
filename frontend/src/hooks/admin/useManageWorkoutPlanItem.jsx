@@ -55,7 +55,7 @@ const useManageWorkoutPlanItem = () => {
       const response = await axios.post(
         `${apiUrl}/api/admin/create-workout-plan-item`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setWorkoutPlans((prevWorkoutPlans) => [
         ...prevWorkoutPlans,
@@ -81,7 +81,7 @@ const useManageWorkoutPlanItem = () => {
       const response = await axios.put(
         `${apiUrl}/api/admin/update-workout-plan-item/${id}`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setWorkoutPlans((prevWorkoutPlans) =>
         prevWorkoutPlans.map((plan) =>

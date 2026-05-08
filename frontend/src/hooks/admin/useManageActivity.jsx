@@ -57,7 +57,7 @@ const useManageActivity = () => {
       const res = await axios.put(
         `${apiUrl}/api/admin/update-activity/${id}`,
         data,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setActivities((prev) =>
         prev.map((a) => (a.id === id ? res.data.activity : a))

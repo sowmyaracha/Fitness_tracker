@@ -31,7 +31,7 @@ const useManageOrders = () => {
     try {
       const response = await axios.get(
         `${apiUrl}/api/admin/get-all-order-items/${orderId}`,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setOrderItems(response.data.orderItems);
     } catch (error) {
@@ -45,7 +45,7 @@ const useManageOrders = () => {
       const response = await axios.post(
         `${apiUrl}/api/admin/create-order-item`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setOrderItems((prevOrderItems) => [
         ...prevOrderItems,
@@ -74,7 +74,7 @@ const useManageOrders = () => {
             },
           },
         },
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setOrderItems((prevOrderItems) =>
         prevOrderItems.map((item) =>
@@ -108,7 +108,7 @@ const useManageOrders = () => {
       const response = await axios.put(
         `${apiUrl}/api/admin/update-order/${id}`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       setOrders((prevOrders) =>
         prevOrders.map((order) =>
@@ -150,7 +150,7 @@ const useManageOrders = () => {
       const response = await axios.put(
         `${apiUrl}/api/admin/update-order/${formData.order_id}`,
         formData,
-        { withCredentials: true,
+        { withCredentials: true }
       );
       toast.success("Order details updated successfully!");
       fetchOrders(); // Refresh orders list
