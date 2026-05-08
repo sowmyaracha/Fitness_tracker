@@ -41,7 +41,6 @@
 //         {
 //           withCredentials: true,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //         }
 //       );
 //       if (res.data.success) {
@@ -64,7 +63,6 @@
 //       const res = await axios.get(`${apiUrl}/api/user/get-related-products`, {
 //         params: { category },
 //         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 //       if (res.data.success) {
@@ -134,7 +132,6 @@
 //         },
 //         withCredentials: true,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 
 //       if (res.data.success) {
@@ -159,7 +156,6 @@
 //         {
 //           withCredentials: true,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //         }
 //       );
 //       if (res.data.success) {
@@ -182,7 +178,6 @@
 //       const res = await axios.get(`${apiUrl}/api/user/get-related-products`, {
 //         params: { category },
 //         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 //       if (res.data.success) {
@@ -258,7 +253,6 @@ const useShop = (productId = null) => {
         },
         withCredentials: true,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
       if (res.data.success) {
@@ -282,7 +276,6 @@ const useShop = (productId = null) => {
       const res = await axios.get(`${apiUrl}/api/user/get-product-by-id/${id}`, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       if (res.data.success) {
         setSingleProduct(res.data.product);
@@ -304,7 +297,6 @@ const useShop = (productId = null) => {
       const res = await axios.get(`${apiUrl}/api/user/get-related-products`, {
         params: { category },
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
