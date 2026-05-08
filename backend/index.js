@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     // origin: "http://insightstracker.com", // Your frontend URL
-    origin: "http://localhost:5173", // Your frontend URL
+    origin: ["http://localhost:5173", "https://fitness-tracker-frontent.onrender.com"], // Your frontend URL
     credentials: true, // Allow credentials (cookies, etc.)
   })
 );
