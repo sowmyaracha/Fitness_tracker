@@ -11,8 +11,6 @@
 //     try {
 //       const res = await axios.get(`${apiUrl}/api/admin/get-user-details`, {
 //         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 //       setUsers(res.data.users);
 //     } catch (error) {
@@ -32,8 +30,6 @@
 //         data,
 //         {
 //           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //         }
 //       );
 //       setUsers((prev) => [...prev, res.data.user]);
@@ -50,8 +46,6 @@
 //         data,
 //         {
 //           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //         }
 //       );
 //       setUsers((prev) =>
@@ -68,8 +62,6 @@
 //     try {
 //       await axios.delete(`${apiUrl}/api/admin/delete-users/${id}`, {
 //         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 //       setUsers((prev) =>
 //         prev.map((user) =>
@@ -107,8 +99,6 @@ const useManageUsers = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-user-details`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setUsers(res.data.users);
     } catch (error) {
@@ -128,8 +118,6 @@ const useManageUsers = () => {
         data,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setUsers((prev) => [...prev, res.data.user]);
@@ -146,8 +134,6 @@ const useManageUsers = () => {
         data,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setUsers((prev) =>
@@ -164,8 +150,6 @@ const useManageUsers = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-users/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setUsers((prev) =>
         prev.map((user) =>

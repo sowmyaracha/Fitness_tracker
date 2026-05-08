@@ -12,8 +12,6 @@ const useManageFoodCatalogue = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-food-items`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setFoodItems(res.data.foods);
     } catch (error) {
@@ -26,8 +24,6 @@ const useManageFoodCatalogue = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-user-name-list`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setUsers(res.data.userNameList);
     } catch (error) {
@@ -47,8 +43,6 @@ const useManageFoodCatalogue = () => {
         data,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setFoodItems((prev) => [...prev, res.data.food]);
@@ -66,8 +60,6 @@ const useManageFoodCatalogue = () => {
         `${apiUrl}/api/admin/update-food-item/${id}`,
         data,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setFoodItems((prev) =>
         prev.map((item) => (item.id === id ? res.data.food : item))
@@ -82,8 +74,6 @@ const useManageFoodCatalogue = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-food-item/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setFoodItems((prev) => prev.filter((item) => item.id !== id));
       toast.success("Food item deleted successfully!");

@@ -16,18 +16,12 @@ const useManageWorkoutPlanItem = () => {
           await Promise.all([
             axios.get(`${apiUrl}/api/admin/get-user-name-list`, {
               withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
             axios.get(`${apiUrl}/api/user/get-activities`, {
               withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
             axios.get(`${apiUrl}/api/admin/get-workout-plan-items`, {
               withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
           ]);
 
@@ -48,8 +42,6 @@ const useManageWorkoutPlanItem = () => {
         `${apiUrl}/api/admin/get-workout-plan-items`,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setWorkoutPlans(response.data.workoutPlanItems);
@@ -64,8 +56,6 @@ const useManageWorkoutPlanItem = () => {
         `${apiUrl}/api/admin/create-workout-plan-item`,
         formData,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setWorkoutPlans((prevWorkoutPlans) => [
         ...prevWorkoutPlans,
@@ -92,8 +82,6 @@ const useManageWorkoutPlanItem = () => {
         `${apiUrl}/api/admin/update-workout-plan-item/${id}`,
         formData,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setWorkoutPlans((prevWorkoutPlans) =>
         prevWorkoutPlans.map((plan) =>
@@ -111,8 +99,6 @@ const useManageWorkoutPlanItem = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-workout-plan-item/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setWorkoutPlans((prevWorkoutPlans) =>
         prevWorkoutPlans.filter((plan) => plan.id !== id)

@@ -19,8 +19,6 @@ const useManageOrders = () => {
         `${apiUrl}/api/common/get-product-name-list`,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setProducts(response.data.products);
@@ -34,8 +32,6 @@ const useManageOrders = () => {
       const response = await axios.get(
         `${apiUrl}/api/admin/get-all-order-items/${orderId}`,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setOrderItems(response.data.orderItems);
     } catch (error) {
@@ -50,8 +46,6 @@ const useManageOrders = () => {
         `${apiUrl}/api/admin/create-order-item`,
         formData,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setOrderItems((prevOrderItems) => [
         ...prevOrderItems,
@@ -81,8 +75,6 @@ const useManageOrders = () => {
           },
         },
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setOrderItems((prevOrderItems) =>
         prevOrderItems.map((item) =>
@@ -100,8 +92,6 @@ const useManageOrders = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-order-item/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setOrderItems((prevOrderItems) =>
         prevOrderItems.filter((item) => item.id !== id)
@@ -119,8 +109,6 @@ const useManageOrders = () => {
         `${apiUrl}/api/admin/update-order/${id}`,
         formData,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setOrders((prevOrders) =>
         prevOrders.map((order) =>
@@ -138,8 +126,6 @@ const useManageOrders = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-order/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setOrders((prevOrders) => prevOrders.filter((order) => order.id !== id));
       toast.success("Order deleted successfully!");
@@ -152,8 +138,6 @@ const useManageOrders = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/admin/get-orders`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setOrders(response.data.formattedData);
     } catch (error) {
@@ -167,8 +151,6 @@ const useManageOrders = () => {
         `${apiUrl}/api/admin/update-order/${formData.order_id}`,
         formData,
         { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       toast.success("Order details updated successfully!");
       fetchOrders(); // Refresh orders list

@@ -30,8 +30,6 @@ function Settings() {
       try {
         const response = await axios.get(`${apiUrl}/api/common/get-profile`, {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }, // Ensure cookies are included in the request
         });
         if (response.data.success) {
           const data = response.data;
@@ -286,8 +284,6 @@ function Settings() {
                     `${apiUrl}/api/common/upload-profile-picture`,
                     { profilePic: data.secure_url },
                     { withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
                   );
                   setProfileData((prev) => ({
                     ...prev,

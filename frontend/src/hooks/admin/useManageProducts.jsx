@@ -11,8 +11,6 @@ const useManageProducts = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-all-products`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setProducts(res.data.products);
     } catch (error) {
@@ -29,8 +27,6 @@ const useManageProducts = () => {
     try {
       const res = await axios.post(`${apiUrl}/api/admin/create-product`, data, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setProducts((prev) => [...prev, res.data.product]);
       toast.success("Product created successfully!");
@@ -46,8 +42,6 @@ const useManageProducts = () => {
         data,
         {
           withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setProducts((prev) =>
@@ -64,8 +58,6 @@ const useManageProducts = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-product/${id}`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setProducts((prev) =>
         prev.map((product) =>
