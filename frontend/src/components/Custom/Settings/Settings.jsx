@@ -283,7 +283,7 @@ function Settings() {
                   await axios.post(
                     `${apiUrl}/api/common/upload-profile-picture`,
                     { profilePic: data.secure_url },
-                    { withCredentials: true,
+                    { withCredentials: true }
                   );
                   setProfileData((prev) => ({
                     ...prev,
