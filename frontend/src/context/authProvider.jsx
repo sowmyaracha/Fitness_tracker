@@ -4,18 +4,26 @@ const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
-     role: localStorage.getItem("role"),
-     user: localStorage.getItem("user"),
-     token: localStorage.getItem("token"),
-  
+    role: localStorage.getItem("role"),
+    user: localStorage.getItem("user"),
+    token: localStorage.getItem("token"),
   });
 
   useEffect(() => {
-    const storedRole = localStorage.getItem("role");
-    const storedToken = localStorage.getItem("token");
-    const storedUser = localStorage.getItem("user");
-    if (storedRole && storedToken && storedUser) {
-      setAuth({ role: storedRole, token: storedToken, user: storedUser });
+    const token = localStorage.getItem("token");
+    if (token) {
+      // Check if token is expired
+      try {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        if (payload.exp * 1000 < Date.now()) {
+          // Token expired, clear localStorage
+          localStorage.clear();
+          setAuth({ role: null, user: null, token: null });
+        }
+      } catch (e) {
+        localStorage.clear();
+        setAuth({ role: null, user: null, token: null });
+      }
     }
   }, []);
 
