@@ -12,6 +12,8 @@ const useUserShop = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/common/get-cart`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setCart(response.data.data || []);
     } catch (error) {
@@ -24,6 +26,8 @@ const useUserShop = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/common/get-wishlist`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
       setWishlist(response.data.data || []);
@@ -38,7 +42,9 @@ const useUserShop = () => {
       await axios.post(
         `${apiUrl}/api/common/add-to-cart`,
         { productId, quantity },
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       toast.success("Item added to cart");
       fetchCart();
@@ -52,6 +58,8 @@ const useUserShop = () => {
     try {
       await axios.delete(`${apiUrl}/api/common/delete-from-cart/${productId}`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       toast.success("Item removed from cart");
       fetchCart();
@@ -66,7 +74,9 @@ const useUserShop = () => {
       await axios.post(
         `${apiUrl}/api/common/add-to-wishlist`,
         { productId },
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       toast.success("Item added to wishlist");
       fetchWishlist();
@@ -89,6 +99,8 @@ const useUserShop = () => {
         `${apiUrl}/api/common/delete-from-wishlist/${productId}`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       toast.success("Item removed from wishlist");
@@ -113,7 +125,9 @@ const useUserShop = () => {
       const response = await axios.post(
         `${apiUrl}/api/user/create-order`,
         orderData,
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
 
       toast.success("Order placed successfully!");

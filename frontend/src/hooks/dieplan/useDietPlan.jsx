@@ -14,6 +14,8 @@ const useDietPlan = () => {
       setLoading(true);
       const response = await axios.get(`${apiUrl}/api/user/get-diet-plan`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         params: { date },
       });
       setDietPlanItems(response.data.dietPlan);
@@ -36,6 +38,8 @@ const useDietPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -58,6 +62,8 @@ const useDietPlan = () => {
         `${apiUrl}/api/user/delete-diet-plan/${planItemId}`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -78,6 +84,8 @@ const useDietPlan = () => {
         `${apiUrl}/api/user/get-food-catalogue`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setFoodItems(response.data.foods);
@@ -97,6 +105,8 @@ const useDietPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -121,6 +131,8 @@ const useDietPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -144,6 +156,8 @@ const useDietPlan = () => {
         `${apiUrl}/api/common/suggest-diet-plan`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success && showToast) {

@@ -16,12 +16,18 @@
 //           await Promise.all([
 //             axios.get(`${apiUrl}/api/admin/get-user-name-list`, {
 //               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //             }),
 //             axios.get(`${apiUrl}/api/user/get-food-catalogue`, {
 //               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //             }),
 //             axios.get(`${apiUrl}/api/admin/get-diet-plan-items`, {
 //               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //             }),
 //           ]);
 
@@ -41,7 +47,9 @@
 //       const response = await axios.post(
 //         `${apiUrl}/api/admin/create-diet-plan-item`,
 //         formData,
-//         { withCredentials: true }
+//         { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
 //       );
 //       setDietPlans((prevDietPlans) => [
 //         ...prevDietPlans,
@@ -57,7 +65,9 @@
 //       const response = await axios.put(
 //         `${apiUrl}/api/admin/update-diet-plan-item/${id}`,
 //         formData,
-//         { withCredentials: true }
+//         { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
 //       );
 //       setDietPlans((prevDietPlans) =>
 //         prevDietPlans.map((plan) =>
@@ -73,6 +83,8 @@
 //     try {
 //       await axios.delete(`${apiUrl}/api/admin/delete-diet-plan-item/${id}`, {
 //         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //       });
 //       setDietPlans((prevDietPlans) =>
 //         prevDietPlans.filter((plan) => plan.id !== id)
@@ -111,12 +123,18 @@ const useManageDietPlanItem = () => {
           await Promise.all([
             axios.get(`${apiUrl}/api/admin/get-user-name-list`, {
               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
             axios.get(`${apiUrl}/api/user/get-food-catalogue`, {
               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
             axios.get(`${apiUrl}/api/admin/get-diet-plan-items`, {
               withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }),
           ]);
 
@@ -137,7 +155,9 @@ const useManageDietPlanItem = () => {
       const response = await axios.post(
         `${apiUrl}/api/admin/create-diet-plan-item`,
         formData,
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setDietPlans((prevDietPlans) => [
         ...prevDietPlans,
@@ -163,7 +183,9 @@ const useManageDietPlanItem = () => {
       const response = await axios.put(
         `${apiUrl}/api/admin/update-diet-plan-item/${id}`,
         formData,
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setDietPlans((prevDietPlans) =>
         prevDietPlans.map((plan) =>
@@ -181,6 +203,8 @@ const useManageDietPlanItem = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-diet-plan-item/${id}`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setDietPlans((prevDietPlans) =>
         prevDietPlans.filter((plan) => plan.id !== id)

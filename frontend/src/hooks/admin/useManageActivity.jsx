@@ -12,6 +12,8 @@ const useManageActivity = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-activities`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setActivities(res.data.activities);
     } catch (error) {
@@ -24,6 +26,8 @@ const useManageActivity = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/admin/get-user-name-list`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setUsers(res.data.userNameList);
     } catch (error) {
@@ -43,6 +47,8 @@ const useManageActivity = () => {
         data,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setActivities((prev) => [...prev, res.data.activity]);
@@ -57,7 +63,9 @@ const useManageActivity = () => {
       const res = await axios.put(
         `${apiUrl}/api/admin/update-activity/${id}`,
         data,
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setActivities((prev) =>
         prev.map((a) => (a.id === id ? res.data.activity : a))
@@ -72,6 +80,8 @@ const useManageActivity = () => {
     try {
       await axios.delete(`${apiUrl}/api/admin/delete-activity/${id}`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setActivities((prev) => prev.filter((a) => a.id !== id));
       toast.success("Activity deleted successfully!");

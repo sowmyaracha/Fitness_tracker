@@ -13,6 +13,8 @@ const useUserOrders = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/user/get-user-orders`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setOrders(response.data.formattedData);
     } catch (error) {
@@ -25,7 +27,9 @@ const useUserOrders = () => {
     try {
       const response = await axios.get(
         `${apiUrl}/api/user/get-all-order-items/${orderId}`,
-        { withCredentials: true }
+        { withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       setOrderItems(response.data.orderItems);
     } catch (error) {

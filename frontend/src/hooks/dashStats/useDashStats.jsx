@@ -16,6 +16,8 @@ const useDashStats = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/admin/admin-dashboard`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setAdminDashboardStats(response.data);
     } catch (err) {
@@ -32,6 +34,8 @@ const useDashStats = () => {
         `${apiUrl}/api/user/get-user-dashboard`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setUserDashboardStats(response.data);
@@ -49,6 +53,8 @@ const useDashStats = () => {
         `${apiUrl}/api/user/get-vendor-dashboard`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setVendorDashboardStats(response.data);
@@ -63,6 +69,8 @@ const useDashStats = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/user/suggest-products`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setSuggestedProducts(response.data.suggestedProducts);
     } catch (error) {

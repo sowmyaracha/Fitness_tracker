@@ -18,6 +18,8 @@ const useDietStats = () => {
         `${apiUrl}/api/user/get-weekly-diet-stats`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setDietStats(response.data); // Store the response data
@@ -33,6 +35,8 @@ const useDietStats = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/common/personal-stats`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setPersonalRecord(response.data);
     } catch (err) {
@@ -47,6 +51,8 @@ const useDietStats = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/common/workout-stats`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setWorkoutStats(response.data);
     } catch (err) {

@@ -12,6 +12,8 @@ const useNotifications = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/user/get-user-notifications`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
       if (res.data.success) {
@@ -31,6 +33,8 @@ const useNotifications = () => {
         {},
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
 

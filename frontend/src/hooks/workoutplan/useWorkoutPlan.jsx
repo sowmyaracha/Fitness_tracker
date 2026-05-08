@@ -15,6 +15,8 @@ const useWorkoutPlan = () => {
       setLoading(true);
       const response = await axios.get(`${apiUrl}/api/user/get-workout-plan`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         params: { date },
       });
 
@@ -40,6 +42,8 @@ const useWorkoutPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -63,6 +67,8 @@ const useWorkoutPlan = () => {
         `${apiUrl}/api/user/delete-workout-plan/${planItemId}`,
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -83,6 +89,8 @@ const useWorkoutPlan = () => {
 
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success && showToast) {
@@ -100,6 +108,8 @@ const useWorkoutPlan = () => {
     try {
       const response = await axios.get(`${apiUrl}/api/user/get-activities`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setActivities(response.data.activities);
     } catch (err) {
@@ -116,6 +126,8 @@ const useWorkoutPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
@@ -137,6 +149,8 @@ const useWorkoutPlan = () => {
         },
         {
           withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       if (response.data.success) {
