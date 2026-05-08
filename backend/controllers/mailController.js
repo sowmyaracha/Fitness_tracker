@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import {
   PASSWORD_RESET_REQUEST_TEMPLATE,
   PASSWORD_RESET_SUCCESS_TEMPLATE,
@@ -8,17 +8,10 @@ import {
 } from "../utils/mailTemplate.js";
 
 // Nodemailer transporter setup
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+import { Resend } from "resend";
 
-const sender = process.env.EMAIL_USER;
+const resend = new Resend(process.env.RESEND_API_KEY);
+const sender = "onboarding@resend.dev";
 
 
 export const sendVerificationEmail = async (email, verificationToken) => {
