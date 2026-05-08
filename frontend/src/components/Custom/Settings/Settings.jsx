@@ -29,7 +29,8 @@ function Settings() {
     const fetchProfileData = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/common/get-profile`, {
-          withCredentials: true,
+        withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         if (response.data.success) {
           const data = response.data;
@@ -283,7 +284,7 @@ function Settings() {
                   await axios.post(
                     `${apiUrl}/api/common/upload-profile-picture`,
                     { profilePic: data.secure_url },
-                    { withCredentials: true }
+                    { withCredentials: true, headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
                   );
                   setProfileData((prev) => ({
                     ...prev,
