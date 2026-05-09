@@ -1,6 +1,6 @@
 // // hooks/shop/useShop.js
 // import { useState, useEffect } from "react";
-// import axios from "axios";
+// import axios from "../../utils/axiosInstance";
 // import { toast } from "react-toastify";
 
 // const apiUrl = import.meta.env.VITE_API_URL;
@@ -98,7 +98,7 @@
 // export default useShop;
 // hooks/shop/useShop.js
 // import { useState, useEffect } from "react";
-// import axios from "axios";
+// import axios from "../../utils/axiosInstance";
 // import { toast } from "react-toastify";
 
 // const apiUrl = import.meta.env.VITE_API_URL;
@@ -220,7 +220,7 @@
 
 // export default useShop;
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import { toast } from "react-toastify";
 
 const apiUrl = import.meta.env.VITE_API_URL;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../utils/axiosInstance";
 const apiUrl = import.meta.env.VITE_API_URL;
 const useUnread = (userId) => {
   const [unreadCount, setUnreadCount] = useState(0);

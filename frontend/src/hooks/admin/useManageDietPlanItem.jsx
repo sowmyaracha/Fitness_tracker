@@ -1,5 +1,5 @@
 // import { useState, useEffect } from "react";
-// import axios from "axios";
+// import axios from "../../utils/axiosInstance";
 // import { toast } from "react-toastify";
 
 // const apiUrl = import.meta.env.VITE_API_URL;
@@ -94,7 +94,7 @@
 
 // export default useManageDietPlanItem;
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import { toast } from "react-toastify";
 
 const apiUrl = import.meta.env.VITE_API_URL;

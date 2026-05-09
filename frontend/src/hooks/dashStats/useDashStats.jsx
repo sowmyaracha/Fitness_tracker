@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import { useState } from "react";
 
 const apiUrl = import.meta.env.VITE_API_URL;
