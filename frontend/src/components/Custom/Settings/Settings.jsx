@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UpdateProfile from "./UpdateProfile";
-import axios from "../../utils/axiosInstance";
+import axios from "../../../utils/axiosInstance";
 import { Modal, Button } from "react-bootstrap";
 
 function Settings() {
