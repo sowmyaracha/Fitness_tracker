@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import axios from "utils/axiosInstance";
+import axios from "./utils/axiosInstance";
 import App from "./App.jsx";
 
 axios.interceptors.request.use((config) => {
