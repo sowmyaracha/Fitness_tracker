@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
+import App from "./App.jsx";
 
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
@@ -10,10 +11,6 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
-import App from "./App.jsx";
-
 createRoot(document.getElementById("root")).render(
- 
     <App />
-  
 );
