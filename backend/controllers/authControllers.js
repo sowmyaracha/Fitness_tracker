@@ -70,33 +70,23 @@ export const signup = async (req, res) => {
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);
-    const verificationToken = Math.floor(
-      100000 + Math.random() * 900000
-    ).toString();
-
     const user = await prisma.user.create({
-      data: {
-        email,
-        first_name: firstname,
-        last_name: lastname,
-        password_hash: hashedPassword,
-        name: `${firstname} ${lastname}`,
-        gender,
-        dob: new Date(dob),
-        profilePic,
-        role_id: 1,
-        verificationToken,
-        status: "ACTIVE",
-        created_at: new Date(),
-        updated_at: new Date(),
-        verificationTokenExpiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours
-      },
-    });
-
-    // jwt
-    //generateTokenAndSetCookie(res, user.id);
-
-    await sendVerificationEmail(user.email, verificationToken);
+  data: {
+    email,
+    first_name: firstname,
+    last_name: lastname,
+    password_hash: hashedPassword,
+    name: `${firstname} ${lastname}`,
+    gender,
+    dob: new Date(dob),
+    profilePic,
+    role_id: 1,
+    status: "ACTIVE",
+    isVerified: true,
+    created_at: new Date(),
+    updated_at: new Date(),
+  },
+});
 
     res.status(201).json({
       success: true,
