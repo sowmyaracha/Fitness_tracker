@@ -73,6 +73,23 @@ function DashBoardUser() {
     return <div>No data available</div>;
   }
   return (
+    {(!userDashboardStats?.profile?.height || !userDashboardStats?.profile?.weight) && (
+  <div style={{
+    background: "linear-gradient(135deg, #4CAF50, #45a049)",
+    color: "white",
+    padding: "12px 20px",
+    borderRadius: "8px",
+    marginBottom: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+  }}>
+    <span>👋 Welcome! Please complete your profile to get personalized diet and workout plans.</span>
+    <a href="/dashboard/user/settings" style={{ color: "white", fontWeight: "bold", textDecoration: "underline" }}>
+      Complete Profile →
+    </a>
+  </div>
+)}
     <div className="content-body">
       {/* row */}
       <div className="container-fluid">
