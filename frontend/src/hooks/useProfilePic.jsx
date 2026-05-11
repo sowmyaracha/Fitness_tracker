@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "../utils/axiosInstance";
 
 const useProfilePic = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -10,18 +11,8 @@ const useProfilePic = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${apiUrl}/api/user/get-profilepic`, {
-        method: "GET",
-        credentials: "include",
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      setProfilePicUrl(data.profilePic); // assuming response is { url: "http://..." }
+      const response = await axios.get(`${apiUrl}/api/user/get-profilepic`);
+      setProfilePicUrl(response.data.profilePic);
     } catch (err) {
       console.error("Error fetching profile picture:", err);
       setError(err);
@@ -34,12 +25,7 @@ const useProfilePic = () => {
     fetchProfilePic();
   }, []);
 
-  return {
-    profilePicUrl,
-    loading,
-    error,
-    refetch: fetchProfilePic,
-  };
+  return { profilePicUrl, loading, error, refetch: fetchProfilePic };
 };
 
 export default useProfilePic;
