@@ -1,55 +1,37 @@
 import axios from "../utils/axiosInstance";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 const useProfile = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
-  const [isLoading, setIsLoading] = useState(false); // Track loading state
+  const [isLoading, setIsLoading] = useState(false);
+
   const updateProfile = async (submittedData) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`${apiUrl}/api/common/update-profile`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(submittedData),
-      });
-
-      const data = await response.json();
-
-      console.log("Data=", data);
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
+      const response = await axios.post(`${apiUrl}/api/common/update-profile`, submittedData);
+      const data = response.data;
       if (data.success) {
         toast.success(data.message);
-        // Redirect to the dashboard
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response?.data?.message || error.message);
     } finally {
       setIsLoading(false);
     }
   };
+
   const getProfile = async () => {
     try {
-      const response = await fetch(`${apiUrl}/api/common/get-profile`, {
-        method: "GET",
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log("Data=", data);
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      return data;
+      const response = await axios.get(`${apiUrl}/api/common/get-profile`);
+      return response.data;
     } catch (error) {
       console.error("Error fetching profile data:", error);
     }
   };
+
   return { isLoading, updateProfile, getProfile };
 };
 
