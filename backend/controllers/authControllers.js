@@ -190,30 +190,16 @@ export const login = async (req, res) => {
     // 	where: { id: user.id },
     // 	data: { lastLogin: new Date() },
     // });
-    const otp = generateOtp(email);
-    const otpExpiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
+  const token = generateTokenAndSetCookie(res, user.id);
+  const role = await prisma.role.findUnique({ where: { id: user.role_id } });
 
-    console.log("📩 OTP generated:", otp);
-    console.log("⏳ OTP expires at:", otpExpiresAt.toISOString(), "for user:", user.email);
-
-    await prisma.user.update({
-      where: { id: user.id },
-      data: {
-        otp,
-        otpExpiresAt,
-      },
-    });
-
-    // Send OTP to user email
-    await sendOtpEmail(user.email, otp);
-        
-
-    res.status(200).json({
-      success: true,
-      message: "OTP sent to your email",
-
-      userId: user.id, // Send user ID so the frontend can send it back when submitting OTP
-    });
+  res.status(200).json({
+    success: true,
+    message: "Login successful",
+    role: role.role_name.toLocaleLowerCase(),
+    user: { ...user, password_hash: undefined },
+    token,
+  });
   } catch (error) {
     console.log("Error in login ", error);
     res.status(400).json({ success: false, message: error.message });
