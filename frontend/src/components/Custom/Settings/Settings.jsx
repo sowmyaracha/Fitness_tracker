@@ -35,8 +35,8 @@ function Settings() {
         if (response.data.success) {
           const data = response.data;
 
-const formattedDob = data.user?.dob ? new Date(data.user.dob).toLocaleDateString("en-CA") : "";
-const formattedMemberSince = data.user?.created_at ? new Date(data.user.created_at).toLocaleDateString("en-CA") : "";
+          const formattedDob = data.user?.dob ? new Date(data.user.dob).toLocaleDateString("en-CA") : "";
+          const formattedMemberSince = data.user?.created_at ? new Date(data.user.created_at).toLocaleDateString("en-CA") : "";
 
           // Assuming the response structure is similar to this
 
