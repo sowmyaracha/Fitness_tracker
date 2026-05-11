@@ -35,7 +35,7 @@ function Settings() {
         if (response.data.success) {
           const data = response.data;
 
-          const formattedDob = new Date(data.user.dob).toLocaleDateString(
+          const formattedDob = data.user?.dob ? new Date(data.user.dob).toLocaleDateString(
             "en-CA"
           ); // "en-CA" for yyyy-mm-dd format
           const formattedMemberSince = new Date(
