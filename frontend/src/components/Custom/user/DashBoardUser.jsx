@@ -73,6 +73,7 @@ function DashBoardUser() {
     return <div>No data available</div>;
   }
   return (
+    <>
     {(!userDashboardStats?.profile?.height || !userDashboardStats?.profile?.weight) && (
   <div style={{
     background: "linear-gradient(135deg, #4CAF50, #45a049)",
@@ -372,6 +373,7 @@ function DashBoardUser() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
