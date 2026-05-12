@@ -74,7 +74,7 @@ function DashBoardUser() {
   }
   return (
     <>
-    {(!userDashboardStats?.profile?.height || !userDashboardStats?.profile?.weight) && (
+    {true && (
   <div style={{
     background: "linear-gradient(135deg, #4CAF50, #45a049)",
     color: "white",
