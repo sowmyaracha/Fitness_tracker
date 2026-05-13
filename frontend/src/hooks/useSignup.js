@@ -32,7 +32,7 @@ const useSignup = () => {
 
       if (data.success) {
         toast.success(data.message);
-        navigate("/auth/verify-email"); // Redirect to verify-email page
+        navigate("/auth/login"); // Redirect to login page // Redirect to verify-email page
       } else {
         toast.error(data.message);
       }
